@@ -1,3 +1,4 @@
+import { useState, type FormEvent } from "react";
 import MovieCard, { type Movie } from "../components/MovieCard";
 
 const movies: Movie[] = [
@@ -6,22 +7,36 @@ const movies: Movie[] = [
   { id: 3, title: "terminator", release_date: 1999, url: "https://via.placeholder.com/300x450" },
 ];
 
-const handleserach = () => {};
-
 function Home() {
+  const [searchQuery, setsearchQuery] = useState("");
+
+  const handleSerach = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    alert(searchQuery);
+    setsearchQuery("");
+  };
+
   return (
     <div className="home">
-      <form onSubmit={handleserach} className="search-form">
-        <input type="text" placeholder="serach for movies" className="search-input" />
+      <form onSubmit={handleSerach} className="search-form">
+        <input
+          type="text"
+          placeholder="serach for movies"
+          className="search-input"
+          value={searchQuery}
+          onChange={(e) => setsearchQuery(e.target.value)}
+        />
         <button type="submit" className="search-btn">
           search
         </button>
       </form>
 
       <div className="movie-grid">
-        {movies.map((movie) => {
-          return <MovieCard key={movie.id} {...movie} />;
-        })}
+        {movies
+          .filter((movie) => movie.title.toLowerCase().startsWith(searchQuery.toLowerCase()))
+          .map((movie) => (
+            <MovieCard key={movie.id} {...movie} />
+          ))}
       </div>
     </div>
   );
