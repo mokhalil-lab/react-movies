@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import MovieCard, { type Movie } from "../components/MovieCard";
+import "../css/Home.css";
 
 const movies: Movie[] = [
   { id: 1, title: "john wick", release_date: 2020, url: "https://via.placeholder.com/300x450" },
@@ -26,12 +27,12 @@ function Home() {
           value={searchQuery}
           onChange={(e) => setsearchQuery(e.target.value)}
         />
-        <button type="submit" className="search-btn">
+        <button type="submit" className="search-button">
           search
         </button>
       </form>
 
-      <div className="movie-grid">
+      <div className="movies-grid">
         {movies
           .filter((movie) => movie.title.toLowerCase().startsWith(searchQuery.toLowerCase()))
           .map((movie) => (

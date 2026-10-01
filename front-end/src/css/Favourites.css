@@ -1,0 +1,23 @@
+.favorites-empty,
+.favourites-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.favorites-empty h2,
+.favourites-empty h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #e50914;
+}
+
+.favorites-empty p,
+.favourites-empty p {
+  color: #999;
+  font-size: 1rem;
+  line-height: 1.6;
+}

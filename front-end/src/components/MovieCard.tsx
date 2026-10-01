@@ -1,3 +1,5 @@
+import "../css/MovieCard.css";
+
 export interface Movie {
   id: number;
   title: string;
@@ -14,8 +16,8 @@ function MovieCard(props: Movie) {
     <div className="movie-card">
       <div className="movie-poster">
         <img src={props.url} alt={props.title} />
-        <div className="overlay">
-          <button className="fav-btn" onClick={onfavouriteclick}>
+        <div className="movie-overlay">
+          <button className="favorite-btn" onClick={onfavouriteclick}>
             ♥
           </button>
         </div>
